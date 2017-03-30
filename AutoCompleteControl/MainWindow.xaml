@@ -1,0 +1,52 @@
+﻿<Window x:Class="AutoCompleteControl.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AutoCompleteControl"
+        xmlns:controls="clr-namespace:AutoCompleteControl.Controls"
+        xmlns:viewModels="clr-namespace:AutoCompleteControl.ViewModels"
+        xmlns:behaviors="clr-namespace:AutoCompleteControl.Behaviors"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <ResourceDictionary Source="Themes\generic.xaml"/>
+    </Window.Resources>
+    <Grid>
+        <!--<controls:AutoCompleteControl>
+            <controls:AutoCompleteControl.DataContext>
+                <viewModels:MainWindowViewModel/>
+            </controls:AutoCompleteControl.DataContext>
+        </controls:AutoCompleteControl>-->
+
+        <ListBox>
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem" >
+                    <Setter Property="behaviors:SwipeBehavior.IsAttached" Value="True"/>
+                    <Setter Property="Focusable" Value="False"/>
+                    <Setter Property="Padding" Value="20 10"/>  
+                </Style>
+            </ListBox.ItemContainerStyle>
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.Items>
+                <ListBoxItem>
+                    Item 1
+                </ListBoxItem>
+                <ListBoxItem>
+                    Item 2
+                </ListBoxItem>
+                <ListBoxItem>
+                    Item 3
+                </ListBoxItem>
+            </ListBox.Items>
+        </ListBox>
+
+    </Grid>
+</Window>
+
+
+
