@@ -12,27 +12,54 @@
     <Window.Resources>
         <ResourceDictionary Source="Themes\generic.xaml"/>
     </Window.Resources>
-    <Grid>
+    <StackPanel>
         <!--<controls:AutoCompleteControl>
             <controls:AutoCompleteControl.DataContext>
                 <viewModels:MainWindowViewModel/>
             </controls:AutoCompleteControl.DataContext>
         </controls:AutoCompleteControl>-->
 
-        <ListBox>
-            <ListBox.ItemContainerStyle>
+        <Button Content="TOUCH" behaviors:SwipeBehavior.IsAttached="True">
+            
+        </Button>
+        <ItemsControl>
+            <ItemsControl.ItemContainerStyle>
                 <Style TargetType="ListBoxItem" >
                     <Setter Property="behaviors:SwipeBehavior.IsAttached" Value="True"/>
                     <Setter Property="Focusable" Value="False"/>
-                    <Setter Property="Padding" Value="20 10"/>  
+                    <Setter Property="Padding" Value="20 10"/>
+                    <Setter Property="ScrollViewer.PanningMode" Value="VerticalOnly"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="ListBoxItem">
+
+                                <Border x:Name="Border" Background="{TemplateBinding Background}" 
+                                            Padding="{TemplateBinding Padding}" 
+                                            Margin="{TemplateBinding Margin}">
+
+                                    <Grid>
+                                        <Border x:Name="HighlightVisualElement" 
+                                                Margin="10 0"
+                                                Visibility="Visible"/>
+                                        
+                                        <ContentPresenter x:Name="PART_ContentPresenter"
+                                                          Content="{TemplateBinding Content}" 
+                                                          ContentStringFormat="{TemplateBinding ContentStringFormat}" 
+                                                          ContentTemplate="{TemplateBinding ContentTemplate}"/>
+
+                                    </Grid>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <!--<Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" TargetName="Border" Value="Red"/>
+                                    </Trigger>-->
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
                 </Style>
-            </ListBox.ItemContainerStyle>
-            <ListBox.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <StackPanel/>
-                </ItemsPanelTemplate>
-            </ListBox.ItemsPanel>
-            <ListBox.Items>
+            </ItemsControl.ItemContainerStyle>
+            <ItemsControl.Items>
                 <ListBoxItem>
                     Item 1
                 </ListBoxItem>
@@ -42,10 +69,10 @@
                 <ListBoxItem>
                     Item 3
                 </ListBoxItem>
-            </ListBox.Items>
-        </ListBox>
+            </ItemsControl.Items>
+        </ItemsControl>
 
-    </Grid>
+    </StackPanel>
 </Window>
 
 

@@ -73,7 +73,7 @@ namespace AutoCompleteControl
                 device.Position = e.GetPosition(null);
                 device.ReportUp();
                 device.Deactivate();
-                device = null;
+                //device = null;
             }
         }
 

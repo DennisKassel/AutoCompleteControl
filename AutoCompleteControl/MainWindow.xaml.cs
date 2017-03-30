@@ -23,6 +23,7 @@ namespace AutoCompleteControl
         public MainWindow()
         {
             InitializeComponent();
-         }
+            MouseTouchDevice.RegisterEvents(this);
+        }
     }
 }
