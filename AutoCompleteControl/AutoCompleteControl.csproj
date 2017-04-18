@@ -71,6 +71,7 @@
     <Compile Include="AutoCompleteControlViewModel.cs" />
     <Compile Include="Behaviors\SwipeBehavior.cs" />
     <Compile Include="Controls\AutoCompleteControl.cs" />
+    <Compile Include="Controls\ControlsHelper.cs" />
     <Compile Include="IAutoCompleteResultProvider.cs" />
     <Compile Include="ISelectionAdapter.cs" />
     <Compile Include="IUpdateVisualState.cs" />
